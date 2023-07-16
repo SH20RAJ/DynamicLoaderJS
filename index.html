@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dynamic Content Example</title>
+  <title>Dynamic Content Loader Example</title>
   <style>
+    /* CSS styles for loading indicator */
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
 
+    /* CSS styles for fade-in animation */
+    .fade-in {
+      animation: fade-in 0.5s ease-in-out forwards;
+    }
 
-    
-    /* CSS styles for the page */
-    .content {
-      display: none; /* Hide content initially */
-      margin: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
+    /* CSS styles for error message */
+    .error-message {
+      color: red;
+      font-weight: bold;
     }
   </style>
+  <base target="_parent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"><link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.4.0/css/mdb.min.css"><style></style><style>INPUT:-webkit-autofill,SELECT:-webkit-autofill,TEXTAREA:-webkit-autofill{animation-name:onautofillstart}INPUT:not(:-webkit-autofill),SELECT:not(:-webkit-autofill),TEXTAREA:not(:-webkit-autofill){animation-name:onautofillcancel}@keyframes onautofillstart{}@keyframes onautofillcancel{}</style>
 </head>
 <body>
-  <h1>Dynamic Content Example</h1>
-  
-  <!-- Navigation buttons -->
-  <button onclick="dl.loadContent('page1')">Page 1</button>
-  <button onclick="dl.loadContent('page2')">Page 2</button>
-  <button onclick="dl.loadContent('page3')">Page 3</button>
-  
-  <!-- Loading indicator -->
-  <div id="loadingIndicator" style="display: none;">Loading...</div>
-  
-  <!-- Content area -->
-  <div id="contentContainer"></div>
-  
-  <!-- Include DynamicLoader.js -->
+  <header id="header"></header>
+
+  <nav>
+    <ul>
+      <li data-load="page1.html" data-target="#content">Load Page 1</li>
+      <li data-load="page2.html" data-target="#content">Load Page 2</li>
+    </ul>
+  </nav>
+
+  <main id="content" style="background: red;">edwe</main>
+
+  <footer id="footer" data-load="components/footer.html"></footer>
+
   <script src="DynamicLoader.js"></script>
-  
-  <!-- Initialize the library -->
   <script>
-    var dl = (function() {
-      // ... (DynamicLoader.js code)
-    })();
+    DynamicLoader.autoLoad();
   </script>
 </body>
 </html>
