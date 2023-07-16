@@ -34,10 +34,8 @@ const DynamicLoader = {
           if (loaderElement) {
             loaderElement.style.display = 'none';
           }
-          window.baseurl = window.origin ;
 
-          const newUrl = window.baseurl + element.dataset.url;
-          window.history.pushState({}, '', newUrl);
+          
         }, 500); // Simulate delay for animation
       })
       .catch(error => {
@@ -68,7 +66,30 @@ const DynamicLoader = {
         this.loadElementContent(element, url);
       }
     });
+
+    const alertElements = document.querySelectorAll('[data-alert]');
+  const urlElements = document.querySelectorAll('[data-url]');
+
+    alertElements.forEach(element => {
+      const alertMessage = element.dataset.alert;
+      element.addEventListener('click', () => {
+        alert(alertMessage);
+      });
+    });
   },
+
+    urlElements.forEach(element => {
+      const alertMessage = element.dataset.url;
+      element.addEventListener('click', () => {
+        alert(alertMessage);
+      });
+    });
+  },
+
+  //const newUrl = window.location.origin +'/' + element.getAttribute('data-url');
+          //console.log(newUrl)
+          //window.history.pushState({}, '', newUrl);
+
 
   loadElementContent: function(element, url) {
     fetch(url)
@@ -115,5 +136,4 @@ function createLoaderElement() {
   return loaderElement;
 }
 
-var dl = d = DynamicLoader ;
 DynamicLoader.autoLoad();
