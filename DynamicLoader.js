@@ -34,6 +34,12 @@ const DynamicLoader = {
           if (loaderElement) {
             loaderElement.style.display = 'none';
           }
+
+          const newUrl = element.dataset.url;
+          console.log(newUrl);
+          if (newUrl) {
+            window.history.pushState({}, '', newUrl);
+          }
         }, 500); // Simulate delay for animation
       })
       .catch(error => {
@@ -110,5 +116,5 @@ function createLoaderElement() {
   document.body.appendChild(loaderElement);
   return loaderElement;
 }
-
+var dl = d = DynamicLoader ;
 DynamicLoader.autoLoad();
