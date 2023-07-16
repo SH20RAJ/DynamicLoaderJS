@@ -1,47 +1,88 @@
-# Dynamic Content Loader
 
-The Dynamic Content Loader is a JavaScript script that allows you to dynamically load content into elements on your webpage without having to reload the entire page.
+<div align="center">
+  <h1>DynamicLoaderJS</h1>
+  <p>
+    DynamicLoaderJS is a lightweight JavaScript library that enables dynamic loading of content into web pages without page refresh. It provides a simple and flexible way to update specific sections of a website, such as the main content area, header, or footer, without reloading the entire page.
+  </p>
+  <img src="https://your-website-url.com/path/to/screenshot.png" alt="DynamicLoaderJS Screenshot" width="600px">
 
-## Usage
+  <br>
 
-1. Include the `DynamicLoader.js` script in your HTML file:
+  [![GitHub license](https://img.shields.io/github/license/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/LICENSE)
+  [![GitHub issues](https://img.shields.io/github/issues/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/stargazers)
+  [![GitHub forks](https://img.shields.io/github/forks/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/network)
 
-```html
-<script src="DynamicLoader.js"></script>
-```
+  ## Table of Contents
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Examples](#examples)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Credits](#credits)
 
-2. To load content into an element, use the `data-load` attribute. Add this attribute to any element you want to load content into, and set its value to the URL of the content to be loaded:
+  ## Features
+  - Dynamic loading of content into HTML elements
+  - Smooth animation effects during content transition
+  - Support for loading specific sections like header and footer
+  - URL update without page refresh
+  - Custom events for content load completion
+  - Ability to load CSS and JavaScript files dynamically
+  - Built-in loader element for visual feedback during content loading
 
-```html
-<div data-load="page1.html"></div>
-```
+  ## Installation
+  You can include DynamicLoaderJS in your project by downloading the [dynamic-loader.js](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/dynamic-loader.js) file and including it in your HTML file:
 
-3. If you want to load content into a specific target element when another element is clicked, use the `data-target` attribute along with the `data-load` attribute. Set the value of `data-target` to the CSS selector of the target element:
+  ```html
+  <script src="path/to/dynamic-loader.js"></script>
+  ```
 
-```html
-<button data-load="header.html" data-target="#header">Load Header</button>
-<button data-load="footer.html" data-target="#footer">Load Footer</button>
-```
+  Alternatively, you can use a CDN by including the following script tag in your HTML file:
 
-4. To automatically load content into elements with the `data-load` attribute, call the `DynamicLoader.autoLoad()` function:
+  ```html
+  <script src="https://cdn.example.com/dynamic-loader.js"></script>
+  ```
 
-```html
-<script>
-  DynamicLoader.autoLoad();
-</script>
-```
+  ## Usage
+  1. Add the `data-load` attribute to the HTML element where you want to load the content. Set the value of `data-load` to the URL of the content you want to load.
 
-5. If you want to load content into an element using a custom selector, you can manually call the `DynamicLoader.load(selector, url)` function:
+  ```html
+  <div data-load="page1.html" data-target="#content"></div>
+  ```
 
-```html
-<script>
-  DynamicLoader.load('#myCustomElement', 'page2.html');
-</script>
-```
+  - The `data-load` attribute specifies the URL of the content to be loaded.
+  - The `data-target` attribute specifies the selector of the target element where the content will be loaded.
 
-6. Enjoy the ability to load sections separately, such as header and footer, without reloading the entire page. This allows you to dynamically change the content of your website while maintaining a smooth user experience.
+  2. Optionally, you can add the `data-loader` attribute to show a loader during content loading. Set `data-loader` to "true" to enable the loader.
 
-Make sure to replace `'page1.html'`, `'header.html'`, `'footer.html'`, `'#header'`, `'#footer'`, and `'#myCustomElement'` with the actual URLs and CSS selectors for your content and target elements.
+  ```html
+  <div data-load="page1.html" data-target="#content" data-loader="true"></div>
+  ```
 
-That's it! With the Dynamic Content Loader, you can easily load content into elements on your webpage, including separate sections like headers and footers, without having to reload the entire page.
+  3. You can also load specific sections like header and footer separately. Add the `data-load` attribute to the respective HTML element and specify the target selector using the `data-target` attribute.
 
+  ```html
+  <header data-load="header.html" data-target="#header"></header>
+  <footer data-load="footer.html" data-target="#footer"></footer>
+  ```
+
+  4. To load CSS or JavaScript files dynamically, use the `loadFile` function with the URL of the file and the file type as parameters.
+
+  ```javascript
+  DynamicLoader.loadFile('https://cdn.example.com/styles.css', 'css');
+  DynamicLoader.loadFile('https://cdn.example.com/script.js', 'js');
+  ```
+
+  ## Examples
+  For detailed usage examples, please refer to the [Examples](https://github.com/SH20RAJ/DynamicLoaderJS/tree/main/examples) directory in this repository.
+
+  ## Contributing
+  Contributions are welcome! If you have any ideas, suggestions, or bug reports, please create an issue or submit a pull request.
+
+  ## License
+  This project is licensed under the [MIT License](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/LICENSE).
+
+  ## Credits
+  Created with ❤️ by [Your Name](https://your-website-url.com)
+</div>
