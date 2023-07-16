@@ -55,11 +55,14 @@
 
   <main id="content" style="background: red;">Content Here</main>
 
+  <span id="op">Span</span>
+
   <footer id="footer" data-load="components/footer.html"></footer>
 
   <script src="DynamicLoader.js"></script>
   <script>
     DynamicLoader.autoLoad();
+    DynamicLoader.load('#op','page3.html')
               DynamicLoader.loadFile('https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.4.0/css/mdb.min.css', 'css');
   </script>
 </body>
