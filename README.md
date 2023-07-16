@@ -1,12 +1,11 @@
 
-<div align="center">
-  <h1>DynamicLoaderJS</h1>
-  <p>
+# DynamicLoaderJS
+  
+  --- 
     DynamicLoaderJS is a lightweight JavaScript library that enables dynamic loading of content into web pages without page refresh. It provides a simple and flexible way to update specific sections of a website, such as the main content area, header, or footer, without reloading the entire page.
-  </p>
-  <img src="https://your-website-url.com/path/to/screenshot.png" alt="DynamicLoaderJS Screenshot" width="600px">
+    
+ ![DynamicLoaderJS Screenshot](logo.png)  
 
-  <br>
 
   [![GitHub license](https://img.shields.io/github/license/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/LICENSE)
   [![GitHub issues](https://img.shields.io/github/issues/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/issues)
@@ -41,7 +40,7 @@
   Alternatively, you can use a CDN by including the following script tag in your HTML file:
 
   ```html
-  <script src="https://cdn.example.com/dynamic-loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/DynamicLoader.js"></script>
   ```
 
   ## Usage
@@ -84,5 +83,5 @@
   This project is licensed under the [MIT License](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/LICENSE).
 
   ## Credits
-  Created with ❤️ by [Your Name](https://your-website-url.com)
-</div>
+  Created with ❤️ by [SH20RAJ](https://sh20raj.com)
+
