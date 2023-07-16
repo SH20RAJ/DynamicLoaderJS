@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Website Example</title>
+  <style>
+    /* CSS styles for the page */
+    .content {
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Website Example</h1>
+
+  <!-- Navigation links -->
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content area -->
+  <div id="contentContainer" class="content"></div>
+
+  <script src="DynamicLoader.js"></script>
+  <script>
+    // Example components
+    var HomeComponent = {
+      name: 'Home',
+      containerId: 'contentContainer',
+      render: function() {
+        return '<h2>Welcome to the Home page!</h2>';
+      }
+    };
+
+    var AboutComponent = {
+      name: 'About',
+      containerId: 'contentContainer',
+      render: function() {
+        return '<h2>About Us</h2><p>We are a dynamic company.</p>';
+      }
+    };
+
+    var ContactComponent = {
+      name: 'Contact',
+      containerId: 'contentContainer',
+      render: function() {
+        return '<h2>Contact Us</h2><p>Get in touch with us.</p>';
+      }
+    };
+
+    // Register the components
+    DynamicLoader.registerComponent(HomeComponent);
+    DynamicLoader.registerComponent(AboutComponent);
+    DynamicLoader.registerComponent(ContactComponent);
+
+    // Register the routes
+    DynamicLoader.registerRoute('/', 'Home');
+    DynamicLoader.registerRoute('/about', 'About');
+    DynamicLoader.registerRoute('/contact', 'Contact');
+
+    // Handle route changes
+    function handleRouteChange(event) {
+      event.preventDefault();
+      var href = event.target.getAttribute('href');
+      history.pushState({}, '', href);
+      DynamicLoader.handleRouteChange();
+    }
+
+    // Add event listeners to navigation links
+    var navigationLinks = document.querySelectorAll('nav a');
+    navigationLinks.forEach(function(link) {
+      link.addEventListener('click', handleRouteChange);
+    });
+
+    // Trigger route change on initial page load
+    window.addEventListener('load', DynamicLoader.handleRouteChange);
+
+    // Trigger route change on browser history navigation
+    window.addEventListener('popstate', DynamicLoader.handleRouteChange);
+  </script>
+</body>
+</html>
