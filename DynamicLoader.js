@@ -36,7 +36,7 @@ const DynamicLoader = {
           }
           window.baseurl = window.origin ;
 
-          const newUrl = window.baseurl + '/pages/page1.html';
+          const newUrl = window.baseurl + element.dataset.url;
           window.history.pushState({}, '', newUrl);
         }, 500); // Simulate delay for animation
       })
