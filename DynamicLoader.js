@@ -1,11 +1,15 @@
 // DynamicLoader.js
 
 const DynamicLoader = {
-  load: function(selector, url) {
+  load: function(selector, url, loaderElement) {
     const element = document.querySelector(selector);
     if (!element) {
       console.error(`Element with selector '${selector}' not found.`);
       return;
+    }
+
+    if (loaderElement) {
+      loaderElement.style.display = 'block';
     }
 
     fetch(url)
@@ -26,12 +30,20 @@ const DynamicLoader = {
             detail: { url: url }
           });
           element.dispatchEvent(event);
+
+          if (loaderElement) {
+            loaderElement.style.display = 'none';
+          }
         }, 500); // Simulate delay for animation
       })
       .catch(error => {
         // Handle error and display an error message
         console.error(`Failed to load content from ${url}:`, error);
         element.innerHTML = '<div class="error-message">Failed to load content.</div>';
+
+        if (loaderElement) {
+          loaderElement.style.display = 'none';
+        }
       });
   },
 
@@ -41,10 +53,12 @@ const DynamicLoader = {
     elements.forEach(element => {
       const url = element.dataset.load;
       const target = element.dataset.target;
+      const loader = element.dataset.loader;
 
       if (target) {
         element.addEventListener('click', () => {
-          this.load(target, url);
+          const loaderElement = loader === 'true' ? createLoaderElement() : null;
+          this.load(target, url, loaderElement);
         });
       } else {
         this.loadElementContent(element, url);
@@ -89,5 +103,12 @@ const DynamicLoader = {
     });
   }
 };
+
+function createLoaderElement() {
+  const loaderElement = document.createElement('div');
+  loaderElement.className = 'line-loader';
+  document.body.appendChild(loaderElement);
+  return loaderElement;
+}
 
 DynamicLoader.autoLoad();
