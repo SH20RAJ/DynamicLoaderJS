@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dynamic Content Loader Example</title>
-
-  
-  <link rel="icon" href="logo.svg"/>
-  <base target="_parent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-  <!-- Add Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
-</head>
-<body>
-
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Your Website</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +10,7 @@
             <a class="nav-link" data-load="components/home.html" data-target="main" data-loader="true" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-load="components/about.html" data-target="main" data-title="About - DynamicLoaderJS" data-loader="true" href="#">About</a>
+            <a class="nav-link" data-load="components/about.html" data-target="main" data-loader="true" href="#">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-load="components/contact.html" data-target="main" data-loader="true" href="#">Contact</a>
@@ -40,18 +25,3 @@
       </div>
     </div>
   </nav>
-</header>
-
-  <main data-load="components/home.html">
-    This is the main container...
-  </main>
-
-
-  
-  <footer data-load="components/footer.html"></footer>
-    <script src="DynamicLoader.js"></script>
-  <script>
-    
-  </script>
-</body>
-</html>

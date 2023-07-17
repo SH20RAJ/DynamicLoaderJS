@@ -51,26 +51,27 @@ Alternatively, you can use a CDN by including the following script tag in your H
 - The `data-target` attribute specifies the selector of the target element where the content will be loaded.
 
 2. Optionally, you can add the `data-loader` attribute to show a loader during content loading. Set `data-loader` to "true" to enable the loader.
+3. Use `data-title` to change the document title after click.
 
 ```html
-<div data-load="page1.html" data-target="#content" data-loader="true"></div>
+<div data-load="page1.html" data-target="#content" data-loader="true" data-title="Page1"></div>
 ```
 
-3. You can also load specific sections like header and footer separately. Add the `data-load` attribute to the respective HTML element and specify the target selector using the `data-target` attribute.
+4. You can also load specific sections like header and footer separately. Add the `data-load` attribute to the respective HTML element and specify the target selector using the `data-target` attribute.
 
 ```html
-<header data-load="header.html" data-target="#header"></header>
-<footer data-load="footer.html" data-target="#footer"></footer>
+<header data-load="header.html" ></header>
+<footer data-load="footer.html" ></footer>
 ```
 
-4. To load CSS or JavaScript files dynamically, use the `loadFile` function with the URL of the file and the file type as parameters.
+5. To load CSS or JavaScript files dynamically, use the `loadFile` function with the URL of the file and the file type as parameters.
 
 ```javascript
 DynamicLoader.loadFile('https://cdn.example.com/styles.css', 'css');
 DynamicLoader.loadFile('https://cdn.example.com/script.js', 'js');
 ```
 
-5. You can also load content into an element using JavaScript by calling `DynamicLoader.load()` and passing the selector, URL, and optional loader element.
+6. You can also load content into an element using JavaScript by calling `DynamicLoader.load()` and passing the selector, URL, and optional loader element.
 
 ```javascript
 DynamicLoader.load('#op', 'page3.html');

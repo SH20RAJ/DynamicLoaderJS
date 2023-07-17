@@ -39,6 +39,8 @@ const DynamicLoader = {
           // Hide the loader element if provided
           if (loaderElement) {
             loaderElement.style.display = 'none';
+            loaderElement.remove();
+            
           }
         }, 500); // Simulate delay for animation
       })
@@ -50,8 +52,11 @@ const DynamicLoader = {
         // Hide the loader element if provided
         if (loaderElement) {
           loaderElement.style.display = 'none';
+          loaderElement.remove();
+
         }
       });
+    
   },
 
   // Function to automatically load content based on data attributes
@@ -69,11 +74,15 @@ const DynamicLoader = {
         element.addEventListener('click', () => {
           const loaderElement = loader === 'true' ? createLoaderElement() : null;
           this.load(target, url, loaderElement);
+          const title = element.dataset.title;
+          if(title){document.title = title ;}
         });
       } else {
         // If no target is specified, load content into the current element
         this.loadElementContent(element, url);
       }
+
+      
     });
 
     // Find all elements with the data-alert attribute
@@ -97,6 +106,48 @@ const DynamicLoader = {
         window.history.pushState({}, "", url);
       });
     });
+
+    // Create a <style> element
+var styleElement = document.createElement('style');
+
+// Define the CSS styles
+var cssStyles = `
+    .line-loader {
+      width: 80px;
+      height: 2px;
+      background-color: #00BFFF;
+      position: relative;
+      margin: 0 auto;
+      animation: line-loader-animation 1.5s infinite;
+    }
+
+    @keyframes line-loader-animation {
+      0% {
+        left: -100%;
+        width: 0%;
+      }
+      50% {
+        left: 100%;
+        width: 100%;
+      }
+      100% {
+        left: 100%;
+        width: 0%;
+      }
+    }
+  /* CSS styles for fade-in animation */
+  .fade-in {
+    animation: fade-in 0.40s ease-in-out forwards;
+  }
+`;
+
+// Set the CSS text of the <style> element
+styleElement.textContent = cssStyles;
+
+// Append the <style> element to the <head> section of the document
+document.head.appendChild(styleElement);
+
+    
   },
 
   // Function to load content into an element without animation
@@ -110,7 +161,12 @@ const DynamicLoader = {
         console.error(`Failed to load content from ${url}:`, error);
       });
   },
-
+ remove :function(element) {
+      var lineLoaders = document.querySelectorAll(element);
+      while (lineLoaders.length > 0) {
+        lineLoaders[0].parentNode.removeChild(lineLoaders[0]);
+      }
+    },
   // Function to load a file dynamically (e.g., CSS or JavaScript)
   loadFile: function(url, fileType) {
     return new Promise((resolve, reject) => {
@@ -154,3 +210,4 @@ function createLoaderElement() {
 var d = dl = dp = dynamic = DynamicLoader   ;
 // Automatically load content and attach event listeners
 DynamicLoader.autoLoad();
+    
