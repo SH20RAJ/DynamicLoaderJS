@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Content Example</title>
+  <style>
+    /* CSS styles for the page */
+    .content {
+      display: none; /* Hide content initially */
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Content Example</h1>
+  
+  <!-- Navigation buttons -->
+  <button onclick="dl.loadContent('page1')">Page 1</button>
+  <button onclick="dl.loadContent('page2')">Page 2</button>
+  <button onclick="dl.loadContent('page3')">Page 3</button>
+  
+  <!-- Loading indicator -->
+  <div id="loadingIndicator" style="display: none;">Loading...</div>
+  
+  <!-- Content area -->
+  <div id="contentContainer"></div>
+  
+  <!-- Include DynamicLoader.js -->
+  <script src="DynamicLoader.js"></script>
+  
+  <!-- Initialize the library -->
+  <script>
+    var dl = (function() {
+      // ... (DynamicLoader.js code)
+    })();
+  </script>
+</body>
+</html>
