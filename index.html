@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Dynamic Content Loader Example</title>
+
+  
+  <link rel="icon" href="logo.svg"/>
+  <base target="_parent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"><style></style><style>INPUT:-webkit-autofill,SELECT:-webkit-autofill,TEXTAREA:-webkit-autofill{animation-name:onautofillstart}INPUT:not(:-webkit-autofill),SELECT:not(:-webkit-autofill),TEXTAREA:not(:-webkit-autofill){animation-name:onautofillcancel}@keyframes onautofillstart{}@keyframes onautofillcancel{}
+  
+
+
+  </style>
 </head>
 <body>
+  <header id="header"></header>
+
+  <nav>
+    <ul>
+      <li data-load="components/page1.html" data-target="#content"  data-loader="true">Load Page 1</li>
+
+      <li data-load="components/page2.html" data-target="#content">
+        Load Page 2
+      </li>
+    </ul>
+  </nav>
+
+  <main id="content" style="background: red;">Content Here</main>
+
+  <span id="op">Span</span>
+
+  <footer id="footer" data-load="components/footer.html"></footer>
+
+
+
   <header>
     <ul> 
         <li data-load="components/home.html" data-target="main" data-loader="true">Home</li>
@@ -21,11 +46,11 @@
     This is the main container...
   </main>
   <footer data-load="components/footer.html"></footer>
+    <script src="DynamicLoader.js"></script>
   <script>
-
+   // DynamicLoader.autoLoad();
+    d.load('#op','components/page3.html')
+              d.loadFile('https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.4.0/css/mdb.min.css', 'css');
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/DynamicLoader.js"></script>
-
-  
 </body>
 </html>
