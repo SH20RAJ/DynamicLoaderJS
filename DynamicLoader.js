@@ -151,6 +151,6 @@ function createLoaderElement() {
   document.body.appendChild(loaderElement);
   return loaderElement;
 }
-
+var d = dl = dp = dynamic = DynamicLoader   ;
 // Automatically load content and attach event listeners
 DynamicLoader.autoLoad();
