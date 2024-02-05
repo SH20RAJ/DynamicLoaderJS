@@ -28,10 +28,10 @@ DynamicLoaderJS is a lightweight JavaScript library that enables dynamic loading
 - Built-in loader element for visual feedback during content loading
 
 ## Installation
-You can include DynamicLoaderJS in your project by downloading the [dynamic-loader.js](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/DynamicLoader.js.js) file and including it in your HTML file:
+You can include DynamicLoaderJS in your project by downloading the [DynamicLoader.js](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/DynamicLoader.js.js) file and including it in your HTML file:
 
 ```html
-<script src="path/to/DynamicLoader.js.js"></script>
+<script src="path/to/DynamicLoader.js"></script>
 ```
 
 Alternatively, you can use a CDN by including the following script tag in your HTML file:
