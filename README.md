@@ -2,7 +2,9 @@
 
 DynamicLoaderJS is a lightweight JavaScript library that enables dynamic loading of content into web pages without page refresh. It provides a simple and flexible way to update specific sections of a website, such as the main content area, header, or footer, without reloading the entire page.
 
-![DynamicLoaderJS Logo](https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/logo.svg)
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/logo.svg" width="50%" alt="logo" >
+</div>
 
 [![GitHub license](https://img.shields.io/github/license/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/SH20RAJ/DynamicLoaderJS)](https://github.com/SH20RAJ/DynamicLoaderJS/issues)
@@ -27,6 +29,11 @@ DynamicLoaderJS is a lightweight JavaScript library that enables dynamic loading
 - Ability to load CSS and JavaScript files dynamically
 - Built-in loader element for visual feedback during content loading
 
+## Autoload
+Run the autoload function after every function happened, because js can't target the new rendered html. So, that nesting of elements can happen. (Optional)
+```js
+DynamicLoader.autoLoad();
+```
 ## Installation
 You can include DynamicLoaderJS in your project by downloading the [DynamicLoader.js](https://github.com/SH20RAJ/DynamicLoaderJS/blob/main/DynamicLoader.js) file and including it in your HTML file:
 
