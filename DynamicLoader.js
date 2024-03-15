@@ -33,6 +33,9 @@ const DynamicLoader = {
             loaderElement.style.display = 'none';
           }
 
+          // Execute scripts in the loaded content
+          this.executeScripts(element);
+
           // Load any nested content within the loaded content
           this.autoLoadNestedContent(element);
 
@@ -91,12 +94,24 @@ const DynamicLoader = {
       .then(content => {
         element.innerHTML = content;
 
+        // Execute scripts in the loaded content
+        this.executeScripts(element);
+
         // Load any nested content within the loaded content
         this.autoLoadNestedContent(element);
       })
       .catch(error => {
         console.error(`Failed to load content from ${url}:`, error);
       });
+  },
+
+  executeScripts: function (element) {
+    const scripts = element.querySelectorAll('script');
+    scripts.forEach(script => {
+      const newScript = document.createElement('script');
+      newScript.text = script.innerText;
+      script.parentNode.replaceChild(newScript, script);
+    });
   },
 
   autoLoadNestedContent: function (parentElement) {
