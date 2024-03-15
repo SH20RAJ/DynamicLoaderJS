@@ -1,22 +1,37 @@
-  <div id="readmeContent"></div>
+<div id="readmeContent">Home.html</div>
+<header data-load="components/header.html" >foo</header>
+<footer data-load="footer.html" ></footer>
+<script>
+  // Fetch the README.md file
+  fetch('https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/README.md')
+    .then(response => response.text())
+    .then(text => {
+      // Convert Markdown to HTML
+      const converter = new showdown.Converter();
+      const html = converter.makeHtml(text);
 
-  <script>
-    // Fetch the README.md file
-    fetch('https://cdn.jsdelivr.net/gh/SH20RAJ/DynamicLoaderJS@main/README.md')
-      .then(response => response.text())
-      .then(text => {
-        // Convert Markdown to HTML
-        const converter = new showdown.Converter();
-        const html = converter.makeHtml(text);
+      // Create a temporary div element to hold the HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
 
-        // Display the HTML in the element with id "readmeContent"
-        const readmeContentElement = document.getElementById('readmeContent');
-        readmeContentElement.innerHTML = html;
-      })
-      .catch(error => {
-        console.error('Error fetching README.md:', error);
-      });
-  </script>
+      // Move the child nodes (including scripts) to the target element
+      const readmeContentElement = document.getElementById('readmeContent');
+      while (tempDiv.firstChild) {
+        readmeContentElement.appendChild(tempDiv.firstChild);
+      }
 
-  <!-- Showdown library for Markdown to HTML conversion -->
-  <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+      // Manually execute scripts
+      const scripts = readmeContentElement.getElementsByTagName('script');
+      for (let i = 0; i < scripts.length; i++) {
+        const script = document.createElement('script');
+        script.text = scripts[i].innerText;
+        readmeContentElement.appendChild(script);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching README.md:', error);
+    });
+</script>
+
+<!-- Showdown library for Markdown to HTML conversion -->
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
